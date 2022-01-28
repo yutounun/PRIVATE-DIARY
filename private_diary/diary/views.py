@@ -2,6 +2,7 @@ from email.policy import default
 import imp
 from operator import ipow
 from django.views import generic
+from django.contrib import messages
 from django.urls import reverse_lazy
 import logging
 from .forms import InquiryForm
@@ -20,6 +21,7 @@ class InquiryView(generic.FormView):
   # run unless validation blocks form objects
   def form_valid(self, form):
     form.send_email()
+    messages.success(self.request, 'Successfullly, an email has been sent:D')
     logger.info('Inquiry sent by {}'.format(form.cleaned_data['name']))
     # call parent class's form_valid
     return super().form_valid(form)
