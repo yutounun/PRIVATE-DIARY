@@ -27,7 +27,11 @@ vi ~/.bash_profile
 
 ```bash_profile
 # add code as below. But this code depends on PC environment.
-export PATH=$PATH:/usr/local/Cellar/postgresql\@10/10.19_1/bin/
+export PATH=$PATH:/usr/local/Cellar/postgresql@10/10.19_1/bin/
+```
+
+```bash
+source ~/.bash_profile
 ```
 ## Install Python packages with pip and requirements.txt
 ```bash
