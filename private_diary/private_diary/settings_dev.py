@@ -47,5 +47,5 @@ LOGGING = {
     }
 }
 
-# required to send email
+# display email on the console instead of sending other address
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

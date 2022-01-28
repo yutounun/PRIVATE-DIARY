@@ -11,14 +11,17 @@
             <form method="post">
                 {% csrf_token %}
 
+                <!-- Display errors not associated with specific field -->
                 {{ form.non_field_errors }}
 
                 {% for field in form %}
                     <div class="form-group row">
-                        <label for="{{ field.id_for_label }}" class="col-sm-4 col-form-label">
+                        <label class="col-sm-4 col-form-label">
+                            <!-- Display column name -->
                             <strong>{{ field.label_tag }}</strong>
                         </label>
                         <div class="col-sm-8">
+                            <!-- field to fill in info -->
                             {{ field }}
                             {{ field.errors }}
                         </div>

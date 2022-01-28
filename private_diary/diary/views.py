@@ -23,5 +23,5 @@ class InquiryView(generic.FormView):
     form.send_email()
     messages.success(self.request, 'Successfullly, an email has been sent:D')
     logger.info('Inquiry sent by {}'.format(form.cleaned_data['name']))
-    # call parent class's form_valid
+    # call parent class's form_valid and send response to success_url
     return super().form_valid(form)
