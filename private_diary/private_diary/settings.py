@@ -79,7 +79,7 @@ DATABASES = {
     # PostgresSQL
     # get info from .env file
     'default': {
-        'ENGINE': 'django.db_backends.postgressql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'private_diary',
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
