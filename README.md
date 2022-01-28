@@ -10,6 +10,7 @@ Practice django with a book called "Python Django 開発入門" which let me lea
     - [Got error saying "Command not found"??](#got-error-saying-command-not-found)
   - [Install Python packages with pip and requirements.txt](#install-python-packages-with-pip-and-requirementstxt)
 - [How to Use the Project](#how-to-use-the-project)
+  - [local server](#local-server)
 - [etc](#etc)
 # How to Install and Run the Project
 ## Activate virtual environment
@@ -38,5 +39,16 @@ source ~/.bash_profile
 pip install requirements.txt
 ```
 # How to Use the Project
+## local server
+move current directory to the right place
+
+```bash
+cd private_diary
+```
+runserve using settings_dev.py as setting
+
+```bash
+python manage.py runserver --settings=private_diary.settings_dev
+```
 # etc
 - I use only main branch on this project since this project is just a practice.
