@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path, os
+from re import M
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -130,3 +131,45 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# logging settings
+LOGGING = {
+    'version': 1,
+    # ignore existing logger
+    'disable_existing_loggers': False,
+
+    # logger settings
+    'Loggers': {
+        # Logger Django uses
+        'Django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        # Logger diary uses
+        'diary': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        }
+    },
+    # handler settings
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            # output on console
+            'class': 'logging.StreamHandler',
+            'formatter': 'dev'
+        },
+    },
+
+    # formatter settings
+    'formatters': {
+        'dev': {
+            'format': '\t'.join([
+                '%(asctime)s',
+                '[%(levelname)s]',
+                '%(pathname)s(Line:%(lineno)d)'
+                '%(messages)s'
+            ])
+        }
+    }
+}
