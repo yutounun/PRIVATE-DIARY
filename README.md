@@ -1,8 +1,8 @@
-# django_book
-Practice django with a book called "Python Django 開発入門" which let me learn lots of detailed django functions and how to deploy...
+# private diary
+This app will let you post your diary privately.
 
 # Table of Contents
-- [django_book](#django_book)
+- [private diary](#private-diary)
 - [Table of Contents](#table-of-contents)
 - [How to Install and Run the Project](#how-to-install-and-run-the-project)
   - [Activate virtual environment](#activate-virtual-environment)
