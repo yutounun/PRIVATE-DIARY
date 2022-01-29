@@ -157,3 +157,9 @@ ACOUNT_EMAIL_SUBJECT_PREFIX = ''
 DEFAULT_FROM_EMAIL = 'admin@exmple.com'
 
 DEBUG = True
+
+# read media_file from this path
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# url will be like 'https://<host_name>/media/example.png'
+MEDIA_URL = '/media/'
