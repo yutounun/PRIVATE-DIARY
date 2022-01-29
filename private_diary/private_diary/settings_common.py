@@ -1,5 +1,6 @@
 from pathlib import Path, os
 from re import M
+from telnetlib import AUTHENTICATION
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,6 +24,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'diary',
     'accounts',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account'
 ]
 
 MIDDLEWARE = [
@@ -126,3 +130,30 @@ MESSAGE_TAGS = {
 }
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# set ID for identify sites to use django.contrib.sites used by django-allauth
+SITE_ID = 1
+
+AUTHENTICATION_BACKEND = (
+    # for normal user (email authentication)
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # for admin-site (Username authentication)
+    'django.contrib.auth.backends.ModelBackend'
+)
+
+# settings to change into email authentication
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+
+# verify email before signup
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+
+# Can logout by only ONE click on logout link
+ACCOUNT_LOGOUT_ON_GET = True
+
+ACOUNT_EMAIL_SUBJECT_PREFIX = ''
+
+DEFAULT_FROM_EMAIL = 'admin@exmple.com'
+
+DEBUG = True
