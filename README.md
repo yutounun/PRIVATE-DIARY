@@ -11,7 +11,7 @@ This app will let you post your diary privately.
   - [Install Python packages with pip and requirements.txt](#install-python-packages-with-pip-and-requirementstxt)
 - [How to Use the Project](#how-to-use-the-project)
   - [local server](#local-server)
-- [Skills used in this project](#skills-used-in-this-project)
+- [Libraries used in this project](#libraries-used-in-this-project)
 - [etc](#etc)
 # How to Install and Run the Project
 ## Activate virtual environment
@@ -52,10 +52,10 @@ runserve using settings_dev.py as setting
 python manage.py runserver --settings=private_diary.settings_dev
 ```
 
-# Skills used in this project
+# Libraries used in this project
 - Bootstrap
-- Django
-- postgreql
+- Django==2.2
+- postgreql==10.0
 
 # etc
 - Will use only main branch on this project since this project is just a practice.
