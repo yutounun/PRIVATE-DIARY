@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'accounts',
     'django.contrib.sites',
     'allauth',
-    'allauth.account'
+    'allauth.account',
+    # AWS SES
+    'django_ses'
 ]
 
 MIDDLEWARE = [
