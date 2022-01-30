@@ -1,3 +1,5 @@
+from distutils.log import Log
+from modulefinder import LOAD_CONST
 from pathlib import Path, os
 from re import M
 from telnetlib import AUTHENTICATION
@@ -163,3 +165,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # url will be like 'https://<host_name>/media/example.png'
 MEDIA_URL = '/media/'
+
+# When Loggin in, this page will lead viewer to this URL.
+LOGGIN_REDIRECT_URL = 'diary:diary_list'

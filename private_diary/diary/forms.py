@@ -2,6 +2,9 @@ from email import message
 from django.core.mail import EmailMessage
 from django import forms
 
+from .models import Diary
+
+# Not use model because no need to use database
 class InquiryForm(forms.Form):
   name = forms.CharField(label='name', max_length=30)
   email = forms.EmailField(label='email')
@@ -32,3 +35,15 @@ class InquiryForm(forms.Form):
     ]
     message = EmailMessage(subject=subject, body=message, from_email=from_email, to=to_list, cc=cc_list)
     message.send()
+
+# use model because use database this time
+class DiaryCreateForm(forms.ModelForm):
+    class Meta:
+        model = Diary
+        fields = ('title', 'content', 'photo1', 'photo2', 'photo3')
+
+    # this is how to apply Bootstrap form-control class to all field
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
