@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}日記一覧 | Private Diary{% endblock %}
+{% block title %}Diary list | Private Diary{% endblock %}
 
 {% block active_diary_list %}active{% endblock %}
 
@@ -17,7 +17,7 @@
                 <div class="clearfix">
                     <a class="btn btn-primary float-right" href="{% url 'diary:diary_create' %}">Create New Post</a>
                 </div> 
-                <!-- using xxx_list because multiple table records exist -->
+                <!-- use xxx_list because multiple table records exist -->
                 {% for diary in diary_list %}
                     <div class="post-preview">
                         <a href="{% url 'diary:diary_detail' diary.id %}">
@@ -32,13 +32,13 @@
                     </div>
                     <hr>
                 {% empty %}
-                    <p>日記がありません。</p>
+                    <p>Diary does not exist</p>
                 {% endfor %}
 
-                <!-- ページネーション処理 -->
+                <!-- Pagenation -->
                 {% if is_paginated %}
                     <ul class="pagination">
-                        <!-- 前ページへのリンク -->
+                        <!-- Link to previous page -->
                         {% if page_obj.has_previous %}
                             <li class="page-item">
                                 <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
@@ -47,7 +47,7 @@
                             </li>
                         {% endif %}
 
-                        <!-- ページ数表示 -->
+                        <!-- Diaplay page number -->
                         {% for page_num in page_obj.paginator.page_range %}
                             {% if page_obj.number == page_num %}
                                 <li class="page-item active"><a class="page-link" href="#">{{ page_num }}</a></li>
@@ -56,7 +56,7 @@
                             {% endif %}
                         {% endfor %}
 
-                        <!-- 次ページへのリンク -->
+                        <!-- Link to next page -->
                         {% if page_obj.has_next %}
                             <li class="page-item">
                                 <a class="page-link" href="?page={{ page_obj.next_page_number }}">
