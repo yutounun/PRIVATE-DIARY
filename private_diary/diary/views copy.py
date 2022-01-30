@@ -66,19 +66,18 @@ class DiaryCreateView(generic.CreateView, LoginRequiredMixin):
   def form_invalid(self, form):
     messages.error(self.request, 'Unfortunately, you failed to post new diary.')
   
-class DiaryUpdateView(generic.UpdateView, LoginRequiredMixin):
-  model = Diary
-  template_name = 'diary_update.html'
-  form_class = DiaryCreateForm
+class DiaryUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Diary
+    template_name = 'diary_update.html'
+    form_class = DiaryCreateForm
 
-  # use this function instead of the success_url when using dynamic url
-  def get_success_url(self):
-    return reverse_lazy('diary:diary_detail', kwargs={'pk': self.kwargs['pk']})
+    def get_success_url(self):
+        return reverse_lazy('diary:diary_detail', kwargs={'pk': self.kwargs['pk']})
 
-  def form_valid(self, form):
-    messages.success(self.request, 'Successfully, you have updated the diary.')
-    return super().form_valid(form)
+    def form_valid(self, form):
+        messages.success(self.request, '日記を更新しました。')
+        return super().form_valid(form)
 
-  def form_invalid(self, form):
-    messages.error(self.request, 'Unfortunately, you failed to update the diary.')
-    return super().form_invalid(form)
+    def form_invalid(self, form):
+        messages.error(self.request, "日記の更新に失敗しました。")
+        return super().form_invalid(form)
