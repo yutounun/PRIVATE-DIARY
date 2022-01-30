@@ -168,3 +168,7 @@ MEDIA_URL = '/media/'
 
 # When Loggin in, this page will lead viewer to this URL.
 LOGGIN_REDIRECT_URL = 'diary:diary_list'
+
+# for backup batch
+BACKUP_PATH = 'backup/'
+NUM_SAVED_BACKUP = 30
