@@ -42,8 +42,6 @@ class DiaryListView(generic.ListView, LoginRequiredMixin):
 class DiaryDetailView(generic.DetailView, LoginRequiredMixin):
   model = Diary
   template_name = 'diary_detail.html'
-  # chage variable from 'pk' to 'id'
-  pk_url_kwarg = 'id'
 
 class DiaryCreateView(generic.CreateView, LoginRequiredMixin):
   model = Diary
@@ -82,3 +80,12 @@ class DiaryUpdateView(generic.UpdateView, LoginRequiredMixin):
   def form_invalid(self, form):
     messages.error(self.request, 'Unfortunately, you failed to update the diary.')
     return super().form_invalid(form)
+
+class DiaryDeleteView(generic.DeleteView, LoginRequiredMixin):
+  model = Diary
+  template_name = 'diary_delete.html'
+  success_url = reverse_lazy('diary:diary_list')
+
+  def delete(self, request, *args, **kwargs):
+    messages.success(self.request, 'Successfully, you have deleted the diary.')
+    return super().delete(self, request, *args, **kwargs)
